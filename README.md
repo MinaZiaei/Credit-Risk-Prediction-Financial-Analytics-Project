@@ -1,30 +1,69 @@
+# Credit Risk Prediction – Financial Machine Learning Project
 
-# Credit Risk Prediction – Financial Analytics Project
+## Business Problem
 
-## Business Context
-In financial institutions, assessing the probability of customer default is critical for minimizing financial risk and optimizing lending strategies.
+Financial institutions must evaluate the risk of loan applicants to minimize financial losses from defaults. 
 
-This project builds a machine learning model to classify loan applicants into risk categories based on demographic and financial attributes.
+This project builds a machine learning model to classify customers as **high-risk** or **low-risk**, helping improve lending decisions and reduce credit risk exposure.
 
-## My Approach
-- Cleaned and handled missing financial data
-- Engineered categorical financial features
-- Built a Random Forest model for classification
-- Evaluated model performance using accuracy and classification metrics
+---
+
+## Dataset
+
+The project uses the German Credit dataset, which includes:
+- Customer demographics (Age, Job, Gender)
+- Financial attributes (Checking account, Saving accounts)
+- Loan details (Credit amount, Duration, Purpose)
+
+---
+
+## Approach
+
+### Data Preparation
+- Removed unnecessary index column
+- Handled missing values in financial variables
+- Encoded categorical variables using one-hot encoding
+
+### Model
+- Random Forest Classifier was used due to its strong performance on tabular data and ability to capture non-linear relationships
+
+---
+
+## Model Performance
+
+- **Accuracy:** 69%
+- **Recall (High-Risk customers):** 83% ✅
+- **Recall (Low-Risk customers):** 48%
+
+### Interpretation
+The model performs well in identifying high-risk customers, which is critical in financial applications since failing to detect risky borrowers can result in financial losses.
+
+---
+
+## Feature Importance
+
+The most important features influencing prediction were:
+- Credit amount
+- Loan duration
+- Age
+
+### Insight
+- Larger loans increase default risk
+- Longer loan duration increases uncertainty and risk
+- Age may reflect financial stability and repayment capability
+
+---
 
 ## Key Insights
-- Customers with lower savings and checking balances show higher default probability
-- Loan duration and credit amount have strong influence on risk
 
-## Tools Used
-- Python (Pandas, NumPy, Scikit-learn)
-- Data preprocessing & feature engineering
+- The model prioritizes identifying high-risk customers, which aligns with financial risk management strategies
+- Financial variables such as checking and saving accounts contribute to predicting credit risk
+- There is a trade-off between identifying risky customers and correctly classifying safe customers
 
-## Results
-- Achieved ~78–85% accuracy
-- Model can support decision-making in credit approval processes
+---
 
-## Next Steps
-- Hyperparameter tuning
-- Try advanced models (XGBoost)
-- Deploy as API for real-time scoring
+## Model Tuning Insights
+
+Increasing model complexity (e.g., deeper trees and more estimators) led to lower test accuracy, indicating **overfitting**.
+
+A simpler model provided better generalization performance.
